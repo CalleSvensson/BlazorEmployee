@@ -1,0 +1,95 @@
+﻿@page "/EditEmployee/{Id:int}"
+
+<PageTitle>Edit Employee</PageTitle>
+@using BlazorEmployee.Data
+@using Microsoft.AspNetCore.Mvc
+@using System.Text.Json
+@using System.Text
+@inject EmployeeService EmployeeService
+@inject NavigationManager NavigationManager
+@inject IHttpClientFactory ClientFactory
+@inject APIService APIService
+
+
+
+<h3>Edit Employee</h3>
+@if (employeeToUpdate.Id != Id)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <input form="Name" class="form-control" @bind="@employeeToUpdate.Id" />
+            </div>
+            <div class="form-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <input form="FirstName" class="form-control" @bind="@employeeToUpdate.FirstName" />
+            </div>            
+            <div class="form-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <input form="LastName" class="form-control" @bind="@employeeToUpdate.LastName" />
+            </div>            
+            <div class="form-group">
+                <label for="BirthDate" class="control-label">Birth date</label>
+                <input type="date" form="BirthDate" class="form-control" @bind="@employeeToUpdate.BirthDate" />
+            </div>            
+            <div class="form-group">
+                <label for="HourlyWage" class="control-label">Wage</label>
+                <input form="HourlyWage" class="form-control" @bind="@employeeToUpdate.HourlyWage" />
+            </div>            
+            <div class="form-group">
+                <label for="Street" class="control-label">Street</label>
+                <input form="Street" class="form-control" @bind="@employeeToUpdate.Address.Street" />
+            </div>           
+            <div class="form-group">
+                <label for="City" class="control-label">City</label>
+                <input form="City" class="form-control" @bind="@employeeToUpdate.Address.City" />
+            </div>            
+            <div class="form-group">
+                <label for="FirstName" class="control-label">Zip</label>
+                <input form="FirstName" class="form-control" @bind="@employeeToUpdate.Address.Zip" />
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@(e => UpdateEmployee())" value="Save"/>
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel"/>
+            </div>
+        </div>
+    </div>
+</form>
+}
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Employee employeeToUpdate = new Employee();
+    //protected override void OnInitialized()
+    //{
+    //    employeeToUpdate = EmployeeService.GetEmployee(Id);
+    //}
+
+    protected override async Task OnInitializedAsync()
+    {
+        employeeToUpdate = await APIService.GetEmployeeByIdAsync(Id);
+    }
+    //protected void UpdateEmployee()
+    //{
+    //    EmployeeService.UpdateEmployee(employeeToUpdate);
+    //    NavigationManager.NavigateTo("/");
+    //}
+    protected async void UpdateEmployee()
+    {
+        await APIService.UpdateEmployee(employeeToUpdate);
+        NavigationManager.NavigateTo("/");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

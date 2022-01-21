@@ -1,0 +1,37 @@
+﻿@page "/DeleteEmployee/{Id:int}"
+
+<PageTitle>Delete Employee</PageTitle>
+@using BlazorEmployee.Data
+@inject EmployeeService EmployeeService
+@inject NavigationManager NavigationManager
+@inject APIService APIService
+
+<h3>Do you want to delete @employeeToDelete.FirstName @employeeToDelete.LastName?</h3>
+<div class="form-group">
+    <input type="button" class="btn btn-danger" @onclick="@Delete" value="Delete" />
+    <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+</div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Employee employeeToDelete = new Employee();
+    //protected override void OnInitialized()
+    //{
+    //    employeeToDelete = EmployeeService.GetEmployee(Id);
+    //}
+        protected override async Task OnInitializedAsync()
+    {
+        employeeToDelete = await APIService.GetEmployeeByIdAsync(Id);
+    }
+    protected async void Delete()
+    {
+        //EmployeeService.DeleteEmployee(employeeToDelete);
+        await APIService.DeleteEmployeeAsync(Id);
+        NavigationManager.NavigateTo("/");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+}
