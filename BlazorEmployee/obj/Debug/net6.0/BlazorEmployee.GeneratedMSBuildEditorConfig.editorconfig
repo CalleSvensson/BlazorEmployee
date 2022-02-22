@@ -83,6 +83,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUm9sZVxDcmVhdGVSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Areas/Identity/Pages/Role/EditRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUm9sZVxFZGl0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Areas/Identity/Pages/Role/EditUserInRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUm9sZVxFZGl0VXNlckluUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Areas/Identity/Pages/Role/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcUm9sZVxSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -97,6 +109,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Pages/User/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lordc/Hazel/BlazorEmployee/BlazorEmployee/Pages/_Host.cshtml]

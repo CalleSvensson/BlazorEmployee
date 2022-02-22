@@ -1,0 +1,30 @@
+﻿@page "/Identity/Pages/Role/EditUserInRole/{id}"
+@model BlazorEmployee.Areas.Identity.Pages.Role.EditUserInRoleModel
+
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h2>Add or remove users from this role</h2>
+        </div>
+        <div class="card-body">
+            @for(int i = 0; i < Model.userRoleList.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.userRoleList[i].UserId" />
+                    <input type="hidden" asp-for="@Model.userRoleList[i].UserName" />
+                    <input asp-for="@Model.userRoleList[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model.userRoleList[i].IsSelected">
+                        @Model.userRoleList[i].UserName
+                    </label>
+                </div>
+
+            }
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" style="width:auto">Update</button>
+            <a href="/Identity/Pages/Role/Roles/" class="btn btn-primary" style="width:auto">Cancel</a>
+        </div>
+    </div>
+</form>
+@{
+}

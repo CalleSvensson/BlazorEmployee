@@ -1,0 +1,25 @@
+﻿@page "/Identity/Pages/Role/Roles"
+@model BlazorEmployee.Areas.Identity.Pages.Role.RolesModel
+<h3>Roles</h3>
+ <a href="/Identity/Pages/Role/CreateRole" class="btn btn-primary">New role</a>
+    @foreach (var role in @Model.roles)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                User id : @role.Id
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@role.Name</h5>
+        </div>
+        <div class="card-footer">
+            <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                <a href="Identity/Pages/Role/EditRole/@role.Id" class="btn btn-primary">Edit role</a>
+                <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to delete role : @role.Name ?')">
+                    Delete</button>
+            </form>
+        </div>
+    }
+@{
+}
